@@ -1,7 +1,11 @@
 import React from "react"
 import Btn from "./Btn"
+import moment from "moment/moment"
 
-const ProductCard = ({ product }) => {
+
+
+const ProductCard = ({ product}) => {
+	
 	return (
 		<div className='card w-[15rem] shadow-md  rounded-lg'>
 			<img
@@ -12,7 +16,8 @@ const ProductCard = ({ product }) => {
 			<h4 className='p-3 font-bold truncate'>{product.title}</h4>
 			<div className='px-3  '>${product.price}</div>
 			<p className='px-3 opacity-80 line-clamp-3'>{product.description}</p>
-			<small className='p-3 opacity-60'>{product.creationAt}</small>
+			{/* use moment js to formatte date */}
+			<small className='p-3 opacity-60'>{moment(product.creationAt).format('DD/MM/YYYY HH:mm') }</small>
 			<div className='btn-group space-x-3 m-3 relative bottom-0'>
 				<Btn
 					title={"Buy now"}
